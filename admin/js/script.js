@@ -1,8 +1,14 @@
-tinymce.init({
-    selector: 'textarea',  // change this value according to your HTML
-    plugins : 'advlist autolink link image lists charmap print preview',
-    autosave_interval: "300s"
+$(document).ready(function(){
+    $('textarea').summernote({
+        height: 450,                 // set editor height
+        minHeight: null,             // set minimum height of editor
+        maxHeight: null,             // set maximum height of editor
+        focus: true,                  // set focus to editable area after initializing summernote 
+    });
 });
+
+
+
 
 $('#selectAllBoxes').click(function(event){
     if(this.checked){

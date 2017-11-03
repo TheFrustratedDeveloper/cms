@@ -14,7 +14,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="registration.php" class="text-primary">
+                        <a href="/cms/registration" class="text-primary">
                             <div class="panel-footer">
                                 <span class="pull-left">Join Here</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

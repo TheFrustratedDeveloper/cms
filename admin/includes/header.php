@@ -18,14 +18,15 @@
     <title>SB Admin - Bootstrap Admin Template</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- charts  -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <!-- WYSIWYG  -->
-    <script src="js/tinymce/tinymce.min.js"></script>
     <script src="js/jquery.js"></script>
+    <!-- WYSIWYG  -->
+    <link href="js/summernote/summernote.css" rel="stylesheet">
+    <script src="js/summernote/summernote.js"></script>
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 <body>

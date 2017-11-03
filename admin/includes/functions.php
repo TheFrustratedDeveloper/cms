@@ -172,12 +172,13 @@
         $query = "UPDATE posts SET post_title='$title',cat_id=$category,post_author='$author',post_content='$content',post_tag='$tags',post_status='$status',post_img='$img',post_date=now() WHERE post_id = $p_id";
         $editQuery = mysqli_query($connect,$query);
         if(!$editQuery){die("Dead".mysqli_error($connect));}else{
+            //header("Location:post_list.php?source=edit_post&p_id=$p_id");
             echo " <div class='alert alert-success'>
                 <strong>Sucessfull!</strong><br>Post Edited.
                 <br>Will be refreshing to HOME within 5 seconds ...
                 </div>";
             
-            header( "refresh:3; url=post_list.php");
+                echo "<div class='alert alert-success'><strong><a href='post_list.php'>View All Posts</a></strong> or <strong><a href='post_list.php?source=edit_post&p_id=$p_id'>Edit This Post</a></strong></div>";
         }
 }
 }

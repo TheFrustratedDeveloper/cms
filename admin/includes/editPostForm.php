@@ -21,13 +21,17 @@ if(isset($_GET['p_id'])){
         $selectTitle = $select['cat_title'];
 
 ?>
-                                    
-                          <form action="" method="post" enctype="multipart/form-data">
-                          <div class="form-group">
+                          <form action="#" method="post" enctype="multipart/form-data">
+                          <div class="row">
+                          <div class="form-group col-lg-4">
                                 <label for="title">Title</label>
-                                <input value="<?php echo $postTitle ?>" type="text" class="form-control" name="title">
+                                <input value="<?php echo $postTitle ?>" id="title" type="text" class="form-control" name="title">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-lg-4">
+                                <label for="author">Author</label>
+                                <input value="<?php echo "$postAuthor" ?>" type="text" class="form-control" name="author" readonly>
+                            </div>
+                            <div class="form-group col-lg-4">
                                 <label for="catID">Category</label>
                                 <select class="form-control" name="category_id" id="">
                                     <option value="<?php echo $catID ; ?> " hidden selected><?php echo $selectTitle ; ?></option>
@@ -43,27 +47,31 @@ while($row = mysqli_fetch_assoc($showAllfromCat)){
                                     ?>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="author">Author</label>
-                                <input value="<?php echo "$postAuthor" ?>" type="text" class="form-control" name="author" readonly>
+                            
                             </div>
                             <div class="form-group">
-                                <label for="img">Image</label>
-                                <img src="../images/<?php echo "$postImg" ?>" width="200" style="margin-bottom:15px;">
+                                <label for="img">Cover Image</label>
+                                <img class="img img-thumbnail img-responsive" width="300" style="margin-left:15px;margin-bottom:20px;" src="../images/<?php echo "$postImg" ?>">
                                 <input type="file" name="image" class="form-control">
                                 
                             </div>
                             <div class="form-group">
                                 <label for="date">Content</label>
-                                <textarea style="height:350px;" name="content" class="form-control"><?php echo "$postContent" ?></textarea>
+                                <textarea style="height:350px;"  name="content" class="form-control"><?php echo "$postContent" ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="tag">Tags</label>
                                 <input type="text" value="<?php echo "$postTag" ?>" name="tags" placeholder="Use Comma to Seperate Tags" class="form-control">
                             </div>
                             <div class="form-group">
+
                                 <label for="status">Status</label>
-                                <input type="text" value="<?php echo "$postStatus" ?>" class="form-control" name="status">
+                                <select class="form-control" name="status">
+                                    <option hidden value="<?php echo "$postStatus" ?>"><?php echo "$postStatus" ?></option>
+                                    <option value="published">Publish</option>
+                                    <option value="draft">Draft</option>
+                                </select>
+                            
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Edit Post" name="Edit" class="btn btn-success">

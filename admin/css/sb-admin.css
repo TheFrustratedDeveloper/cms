@@ -222,3 +222,6 @@ ul.alert-dropdown {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+.note-group-select-from-files{
+    display : none;
+}

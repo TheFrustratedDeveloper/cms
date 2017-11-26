@@ -1,0 +1,17 @@
+{
+    "name": "dhruv/cms",
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    },
+    "autoload": {
+        "classmap": [
+            "class"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Dhruv Saxena",
+            "email": "dhruvsaaaxena.1998@gmail.com"
+        }
+    ]
+}

@@ -1,7 +1,23 @@
 <?php  include "includes/db_connect.php"; ?>
 <?php  include "includes/header.php"; ?>
+<?php 
+    // Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+//Load composer's autoloader
+require 'vendor/autoload.php';
+// require 'class/config.php';
+
+// $mail = new PHPMailer(true);
+// echo get_class($mail);
+?>
+
 <!-- Navigation -->
 <?php  include "includes/nav.php"; ?>
+
+
 <script>
     window.setTimeout(function() {
     $(".alert").fadeTo(300, 0).slideUp(300, function(){
@@ -52,6 +68,39 @@ if(isset($_POST['recover-submit'])){
     }else{
         echo "<p class='alert alert-danger'> Email doesn't exists. Please check your Email Address</p>";
     }
+    /*
+        CONFIG PHPMAILER
+    */
+     $mail = new PHPMailer(true);
+    try {
+        //Server settings
+        $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+        $mail->isSMTP();                                            // Set mailer to use SMTP
+        $mail->Host = config::SMTP_HOST;                          // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                                  // Enable SMTP authentication
+        $mail->Username = config::SMTP_USER;                    // SMTP username
+        $mail->Password = config::SMTP_PASSWORD;                // SMTP password
+        $mail->Port = config::SMTP_PORT;                       // TCP port to connect to
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->CharSet = 'UTF-8';                                   
+    
+        //Recipients
+        $mail->setFrom('dhruvsaaaxena.1998@gmail.com', 'Dhruv Saxena');
+        $mail->addAddress($email);     // Add a recipient
+        $mail->addReplyTo('info@example.com', 'ReplyTo');
+    
+        //Content
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = 'PHP Mailer Check';
+        $mail->Body    = 'This is कुछ कुछ message body <b>in bold!</b>';
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    
+        $mail->send();
+    } catch (Exception $e) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    }    
+
 }
 ?>
                                         <div class="form-group">

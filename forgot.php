@@ -67,6 +67,9 @@ if(isset($_POST['recover-submit'])){
         }
     }else{
         echo "<p class='alert alert-danger'> Email doesn't exists. Please check your Email Address</p>";
+        echo "<a class='btn btn-primary' href='/cms/login'>LOGIN</a> <a class='btn btn-success' href='/cms/register'>REGISTER</a>
+        <a href='cms/'>HOME</a>";
+        die();
     }
     /*
         CONFIG PHPMAILER
@@ -74,7 +77,7 @@ if(isset($_POST['recover-submit'])){
      $mail = new PHPMailer(true);
     try {
         //Server settings
-        $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+        $mail->SMTPDebug = 0;                                       // Enable verbose debug output
         $mail->isSMTP();                                            // Set mailer to use SMTP
         $mail->Host = config::SMTP_HOST;                          // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                                  // Enable SMTP authentication
@@ -91,8 +94,14 @@ if(isset($_POST['recover-submit'])){
     
         //Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'PHP Mailer Check';
-        $mail->Body    = 'This is कुछ कुछ message body <b>in bold!</b>';
+        $mail->Subject = 'Password Reset[noReply]';
+        $mail->Body    = "<p>Please Click on the link or copy and paste the link in your browser to reset your password.
+        <br>
+        <a href='https://localhost/cms/reset.php?email=$email&token=$token'>
+            https://localhost/cms/reset.php?email=$email&token=$token
+        </a>
+        </p>
+        ";
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         $mail->send();

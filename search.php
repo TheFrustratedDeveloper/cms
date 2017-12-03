@@ -13,9 +13,9 @@
                 </h1>
                <!-- First Blog Post -->
                <?php  
-                    if(isset($_POST['submit'])){
-                    $search = $_POST['search'];
-                    $query = "SELECT * FROM posts WHERE post_tag LIKE '%$search%'";
+                    if(isset($_GET['submit'])){
+                    $search = $_GET['search'];
+                    $query = "SELECT * FROM posts WHERE post_tag LIKE '%$search%' AND post_status ='published'";
                     $searchResult = mysqli_query($connect,$query);
                     //to count rows in table = $count = mysqli_num_rows($searchResult);
                                    

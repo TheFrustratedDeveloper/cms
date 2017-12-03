@@ -21,11 +21,11 @@ if(isset($_GET['p_id'])){
         $selectTitle = $select['cat_title'];
 
 ?>
-                          <form action="#" method="post" enctype="multipart/form-data">
+                          <form method="post" enctype="multipart/form-data">
                           <div class="row">
                           <div class="form-group col-lg-4">
                                 <label for="title">Title</label>
-                                <input value="<?php echo $postTitle ?>" id="title" type="text" class="form-control" name="title">
+                                <input autofocus value="<?php echo $postTitle ?>" id="title" type="text" class="form-control" name="title">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="author">Author</label>

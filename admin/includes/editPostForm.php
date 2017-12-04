@@ -51,7 +51,7 @@ while($row = mysqli_fetch_assoc($showAllfromCat)){
                             </div>
                             <div class="form-group">
                                 <label for="img">Cover Image</label>
-                                <img class="img img-thumbnail img-responsive" width="300" style="margin-left:15px;margin-bottom:20px;" src="../images/<?php echo "$postImg" ?>">
+                                <img class="img img-thumbnail img-responsive" width="300" style="margin-left:15px;margin-bottom:20px;" src="../images/<?php echo imagePlaceHolder($postImg) ?>">
                                 <input type="file" name="image" class="form-control">
                                 
                             </div>

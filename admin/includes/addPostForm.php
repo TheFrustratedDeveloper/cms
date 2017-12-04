@@ -37,7 +37,7 @@ while($row = mysqli_fetch_assoc($showAllfromCat)){
                             
                             <div class="form-group">
                                 <label for="img">Image</label>
-                                <input type="file"  name="image" class="form-control" required>
+                                <input type="file"  name="image" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="date">Content</label>

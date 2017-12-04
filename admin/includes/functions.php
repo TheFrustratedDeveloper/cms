@@ -6,6 +6,13 @@
     function redirect($location){
         header("Location:$location");
     }
+    function imagePlaceHolder($image = ''){
+        if(!$image){
+            return '../images/default.png';
+        }else{
+            return $image;
+        }
+    }
     function create_category(){
         global $connect;
         if(isset($_POST['submit'])){
@@ -495,7 +502,7 @@
                     $_SESSION['user_id'] = $login_id;
                     if($login_role == 'Admin'){
                         header("Location: ../admin");
-                    }else if($login_role == 'Content writer'){
+                    }else if($login_role == 'Content Writer'){
                         echo "<script>alert('You are registered as Content writer. Thanks for showing intrest in US')</script>";
                         $_SESSION['username'] = $login_username;
                         $_SESSION['first_name'] =  $login_fname;

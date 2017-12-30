@@ -29,22 +29,22 @@
                     die();
                 }else{
                     mysqli_stmt_close($stmt);
-                    redirect('add_cat.php');    
-                }  
-            }    
+                    redirect('add_cat.php');
+                }
+            }
         }
-    }   
+    }
     function update_category(){
         global $connect;
         if(isset($_GET['edit'])){ //to show update textfield with cat_title in it
             $catID_edit = $_GET['edit'];
-            $catTitle_edit = $_GET['title']; 
+            $catTitle_edit = $_GET['title'];
             echo "<div class='form-group'>";
             echo "<label for='cat'>Edit Category Name</label>";
             echo "<input value='$catTitle_edit' class='form-control' type='text' name='cat_update_title'>";
             echo "</div>";
             echo "<div class='form-group'>";
-            ?><?php //to update the selected category 
+            ?><?php //to update the selected category
             if(isset($_POST['update'])){
                 $updated_title = $_POST['cat_update_title'];
                 if(empty($updated_title)){
@@ -57,9 +57,9 @@
                 if(!$stmt){die();}else{
                     mysqli_stmt_close($stmt);
                     redirect('add_cat.php');
-                } 
+                }
             }
-            ?><?php //to show update button 
+            ?><?php //to show update button
             echo "<input class='btn btn-warning' type='submit' name='update' value='Update'>";
             echo "</div>";
         }
@@ -86,7 +86,7 @@
             $cat_id = $_POST['category_id'];
             if(empty($cat_id)){
                 echo( "<script>alert('Please Select category')</script>");
-            }else{       
+            }else{
                 $postImg = $_FILES['image']['name'];
                 $postImgTemp = $_FILES['image']['tmp_name'];
                 $postTag = $_POST['tags'];
@@ -101,14 +101,14 @@
                     <strong>Sucessful!</strong><br>Post Added.
                     </div>";
                     $postID = mysqli_insert_id($connect);
-                echo "<div class='alert alert-success'><strong><a href='post_list.php'>View All Posts</a></strong> or <strong><a href='post_list.php?source=edit_post&p_id=$postID'>Edit This Post</a></strong></div>";   
+                echo "<div class='alert alert-success'><strong><a href='post_list.php'>View All Posts</a></strong> or <strong><a href='post_list.php?source=edit_post&p_id=$postID'>Edit This Post</a></strong></div>";
             } } } }
-// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑   
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 // MODIFIED WITH PREPARE STATEMENTS
-// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 // MODIFIED WITH PREPARE STATEMENTS
-// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑  
-// MODIFIED WITH PREPARE STATEMENTS 
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+// MODIFIED WITH PREPARE STATEMENTS
     function deletePost(){
         global $connect;
         if(isset($_POST['delete'])){
@@ -145,7 +145,7 @@
                 </div>";
                 header( "refresh:1; url=post_list.php");
             }
-        }        
+        }
     }
     function editPost(){
         global $connect;
@@ -167,7 +167,7 @@
         $status = $_POST['status'];
         $img = $_FILES['image']['name'];
         $tempImg = $_FILES['image']['tmp_name'];
-        $date = date('d-m-y');                  
+        $date = date('d-m-y');
         move_uploaded_file($tempImg,"../images/$img");
         if(empty($img)){
             $imgQuery = "SELECT * FROM posts WHERE post_id = $p_id";
@@ -184,7 +184,7 @@
                 <strong>Sucessfull!</strong><br>Post Edited.
                 <br>Will be refreshing to HOME within 5 seconds ...
                 </div>";
-            
+
                 echo "<div class='alert alert-success'><strong><a href='post_list.php'>View All Posts</a></strong> or <strong><a href='post_list.php?source=edit_post&p_id=$p_id'>Edit This Post</a></strong></div>";
         }
 }
@@ -209,10 +209,10 @@
             $showPostTitle = mysqli_query($connect,$selectfromPost);
             $rowR_TO = mysqli_fetch_assoc($showPostTitle);
             $responseTo = $rowR_TO['post_title'];
-            //End of in Response to    
+            //End of in Response to
             $cmtStatus = $row['cmt_status'];
             $cmtDate = $row['cmt_date'];
-            //Print into table                    
+            //Print into table
             echo "<tr>";
             echo "<td><input type='checkbox' class='checkboxes' name='checkBoxArray[]' value=$cmtID></td>";
             echo "<td>$cmtID</td>";
@@ -276,31 +276,31 @@
             $firstname = $_POST['fname'];
             $lastname = $_POST['lname'];
             $email = $_POST['email'];
-            $for_role = $_POST['for_role'];                   
+            $for_role = $_POST['for_role'];
             $userImg = $_FILES['image']['name'];
             $userImgTemp = $_FILES['image']['tmp_name'];
             $username = $_POST['username'];
-            
-            
+
+
             if(duplicateUser($username)){
                 echo "<div class='alert alert-warning'>
                 <strong>Please Select Different Username !</strong>
                 <small>Duplication Found.</small>
                 </div>";
                 header( "refresh:2; url=users_list.php?source=add_user");
-                
+
             }else{
-                
-            
-            
+
+
+
             $password = $_POST['password'];
             $confirmPassword = $_POST['cnfrmPassword'];
-            
+
             if($password === $confirmPassword){
                 $password = password_hash("$password",PASSWORD_BCRYPT,array('cost' => 12));
-                $dateAdded = date('d-m-y');             
-                move_uploaded_file($userImgTemp,"../images/users/$userImg");                    
-                $query = "INSERT INTO users(first_name,last_name,email,role,user_image,username,password,dateAdded) VALUES('$firstname','$lastname','$email','$for_role','$userImg','$username','$password',now())";         
+                $dateAdded = date('d-m-y');
+                move_uploaded_file($userImgTemp,"../images/users/$userImg");
+                $query = "INSERT INTO users(first_name,last_name,email,role,user_image,username,password,dateAdded) VALUES('$firstname','$lastname','$email','$for_role','$userImg','$username','$password',now())";
                 $addUser = mysqli_query($connect,$query);
                 if(!$addUser){die();}else{
                     echo "<div class='alert alert-success'>
@@ -333,9 +333,9 @@
                         <strong>User Deleted!</strong>
                         </div>";
                         header( "refresh:1; url=users_list.php");
-                    }  
+                    }
                 }
-            } 
+            }
         }
     }
     function makeAdmin(){
@@ -371,25 +371,25 @@
             $blocked = mysqli_query($connect,$query);
             if(!$blocked){die();}else{header("Location:users_list.php");}
         }
-    } 
+    }
     function editUser(){
         global $connect;
-        
+
         if(isset($_POST['editUser'])){
-            
+
             $id = $_GET['id'];
             $firstname = $_POST['fname'];
-            $lastname = $_POST['lname'];                   
+            $lastname = $_POST['lname'];
             $userImg = $_FILES['image']['name'];
             $userImgTemp = $_FILES['image']['tmp_name'];
             $username = $_POST['username'];
             $oldPassword = $_POST['oldPassword'];
-            
+
             $selectOLDPassword = "SELECT * FROM users WHERE user_id = $id";
             $showOLDPassword = mysqli_query($connect,$selectOLDPassword);
             $row = mysqli_fetch_assoc($showOLDPassword);
             $oldPswrd = $row['password'];
-            
+
             if(password_verify("$oldPassword","$oldPswrd")){
                 $password = $_POST['password'];
                 $confirmPassword = $_POST['cnfrmPassword'];
@@ -402,7 +402,7 @@
                     die();
                 }else{
                     $password = password_hash("$password",PASSWORD_BCRYPT,array('cost' => 12));
-                    $dateAdded = date('d-m-y');            
+                    $dateAdded = date('d-m-y');
                     move_uploaded_file($userImgTemp,"../images/users/$userImg");
                     if(empty($userImg)){
                         $imgQuery = "SELECT * FROM users WHERE user_id = $id";
@@ -417,28 +417,28 @@
                         echo "  <div class='alert alert-success'>
                                 <strong>Updated Sucessfully!</strong>
                                 </div>  ";
-                        header( "refresh:3; url=index.php");   
+                        header( "refresh:3; url=index.php");
                     }
                 }
-            }  //checking password ends         
+            }  //checking password ends
         }
-         //mainIF statement ends   
+         //mainIF statement ends
     } //function ends
 
     function onlineUserCount(){
-        if(isset($_GET['chkOnline'])){    
-        include "../../includes/db_connect.php";   
+        if(isset($_GET['chkOnline'])){
+        include "../../includes/db_connect.php";
         session_start();
         $session = session_id();
         $time = time();
         $timeOutInSec = 60;
         $timeOut = $time - $timeOutInSec;
-        
+
         $timeQuery = "SELECT * FROM online WHERE session = '$session' ";
         $sendTimeQuery = mysqli_query($connect,$timeQuery);
         $onlineCount = mysqli_num_rows($sendTimeQuery);
         if($onlineCount == null){
-            mysqli_query($connect,"INSERT INTO online(session,time) VALUES('$session','$time')"); 
+            mysqli_query($connect,"INSERT INTO online(session,time) VALUES('$session','$time')");
         }else{
             mysqli_query($connect,"UPDATE online SET time = '$time' WHERE session = '$session'");
         }
@@ -467,8 +467,8 @@
         $doQuery = mysqli_query($connect,$query);
         return mysqli_num_rows($doQuery);
     }
-    
-    
+
+
     function duplicateUser($username){
         global $connect;
         $query = "SELECT username FROM users WHERE username = '$username' ";
@@ -483,6 +483,8 @@
     }
     function loginUser($username,$password){
         global $connect;
+        $login_username = "";
+        $login_password = "";
                 $query = "SELECT * FROM users WHERE username = '$username'";
                 $loginUser = mysqli_query($connect,$query);
                 while($row = mysqli_fetch_assoc($loginUser)){
@@ -521,13 +523,13 @@
                         header("refresh:0.1;url=../index.php");
                     }
                 }
-                else {  
+                else {
                         if($username == $login_username){
                             echo "<script>alert('Password Incorrect! Please check your password')</script>";
                         }else{
-                            echo "<script>alert('Username not found')</script>"; 
+                            echo "<script>alert('User not found')</script>";
                         }
-                        header("refresh:0.1;url=../index.php");
+                        header("refresh:0.1;url=../login.php");
                 }
             }
 
@@ -540,7 +542,7 @@
             'username' => '',
             'password' => '',
             'confirmPassword' => ''
-    ];        
+    ];
     //validation
     if(empty($fname)){$error['fname'] = "First name cannot be empty";}else{
         if(empty($lname)){$error['lname'] = "Last name cannot be empty";}else{
@@ -564,7 +566,7 @@
                                 if(!$registerQuery){die(mysqli_error($connect));}else{
                                     echo "<script>alert('User Registered! Please wait while we verify the account')</script>";
                                     header("refresh:0.1;url=index.php");
-                                }  
+                                }
                             }
                         }
                     }
@@ -582,7 +584,7 @@ function subscriber($email){
         $subscribed = mysqli_query($connect,$query);
         return 0;
     }
-    
-      
+
+
 }
 ?>

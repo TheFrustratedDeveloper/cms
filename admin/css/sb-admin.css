@@ -16,7 +16,7 @@ body {
         margin-top: 50px;
     }
 }
-
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed');
 #wrapper {
     padding-left: 0;
 }
@@ -224,4 +224,23 @@ ul.alert-dropdown {
 }
 .note-group-select-from-files{
     display : none;
+}
+.chatArea{
+    min-height: 350px;
+    height: 350px;
+    padding: 10px;
+    font-family: sans-serif;
+    overflow: auto;
+    width:100%;
+    background-color: rgb(216, 216, 216);
+    margin-bottom: 5px;
+    color:rgb(58, 58, 58);
+}
+.chatText{
+    min-width: 100%;
+    border: 1px solid rgb(53, 53, 53);
+    margin-top:5px;
+    max-height: 70px;
+    padding: 10px;
+    
 }

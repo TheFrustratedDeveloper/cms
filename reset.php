@@ -1,14 +1,6 @@
 <?php  include "includes/db_connect.php"; ?>
 <?php  include "includes/header.php"; ?>
 
-<?php 
-// Import PHPMailer classes into the global namespace
-// These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-//Load composer's autoloader
-require 'vendor/autoload.php';
-?>
 
 <!-- Navigation -->
 <?php  include "includes/nav.php"; ?>
@@ -21,7 +13,7 @@ require 'vendor/autoload.php';
 }, 4000);
 </script>
 <!-- Page Content -->
-<?php 
+<?php
 if(!$_GET['email'] || !$_GET['token']){
     redirect("/cms/login");
 }else{
@@ -52,8 +44,8 @@ if(!$_GET['email'] || !$_GET['token']){
             }else{
                 echo "NOPE";
             }
-            
-        }    
+
+        }
 
     }
 }
@@ -103,4 +95,3 @@ if(!$_GET['email'] || !$_GET['token']){
     <?php include "includes/footer.php";?>
 
 </div> <!-- /.container -->
-

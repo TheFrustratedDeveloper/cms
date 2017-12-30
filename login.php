@@ -3,7 +3,14 @@
 <!-- Navigation -->
 <?php  include "includes/nav.php"; ?>
 <!-- Page Content -->
-<?php 
+<script>
+	 window.setTimeout(function() {
+	 $(".alert").fadeTo(300, 0).slideUp(300, function(){
+			 $(this).remove();
+	 });
+}, 4000);
+</script>
+<?php
 if(isset($_SESSION['role'])){
 	redirect('/cms/admin');
 }
@@ -19,7 +26,9 @@ if(isset($_SESSION['role'])){
 						<div class="text-center">
 							<h3><i class="fa fa-user fa-4x"></i></h3>
 							<h2 class="text-center">Login</h2>
+
 							<div class="panel-body">
+
 								<form id="login-form"  action="/cms/includes/login.php" role="form" autocomplete="off" class="form" method="post">
 									<div class="form-group">
 										<div class="input-group">
@@ -41,6 +50,7 @@ if(isset($_SESSION['role'])){
 									</div>
 								</form>
 							</div><!-- Body-->
+
 						</div>
 					</div>
 				</div>

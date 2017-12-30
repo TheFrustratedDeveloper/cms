@@ -57,7 +57,7 @@ while($row = mysqli_fetch_assoc($showAllfromCat)){
                             </div>
                             <div class="form-group">
                                 <label for="date">Content</label>
-                                <textarea style="height:350px;"  name="content" class="form-control"><?php echo "$postContent" ?></textarea>
+                                <textarea class="textarea" name="content" class="form-control"><?php echo "$postContent" ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="tag">Tags</label>

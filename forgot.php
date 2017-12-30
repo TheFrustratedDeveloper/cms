@@ -60,11 +60,6 @@ if(isset($_POST['recover-submit'])){
         $stmt = mysqli_prepare($connect,"UPDATE users SET token = ? WHERE email = ?");
         mysqli_stmt_bind_param($stmt,"ss",$token,$email);
         mysqli_stmt_execute($stmt);
-        if(!$stmt){
-            echo "<p class='alert alert-danger'>FAILED ! Please try again.</p>";
-        }else{
-            echo "<p class='alert alert-info'>Success ! Please check your email for reset link.</p>";
-        }
     }else{
         echo "<p class='alert alert-danger'> Email doesn't exists. Please check your Email Address</p>";
         echo "<a class='btn btn-primary' href='/cms/login'>LOGIN</a> <a class='btn btn-success' href='/cms/register'>REGISTER</a>
@@ -84,9 +79,10 @@ if(isset($_POST['recover-submit'])){
         $mail->Username = config::SMTP_USER;                    // SMTP username
         $mail->Password = config::SMTP_PASSWORD;                // SMTP password
         $mail->Port = config::SMTP_PORT;                       // TCP port to connect to
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        // $mail->SMTPSecure = 'ssl';                          //Enable SSL encryption for google mail  
+        $mail->SMTPSecure = 'tls';                          // Enable TLS encryption, `ssl` also accepted
         $mail->CharSet = 'UTF-8';                                   
-    
+                        // TCP port to connect to
         //Recipients
         $mail->setFrom('dhruvsaaaxena.1998@gmail.com', 'Dhruv Saxena');
         $mail->addAddress($email);     // Add a recipient
@@ -104,11 +100,17 @@ if(isset($_POST['recover-submit'])){
         ";
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
-        $mail->send();
+        
+        if(!$mail->send()){
+            echo "<p class='alert alert-danger'>FAILED ! Please try again.</p>";
+        }else{
+            echo "<p class='alert alert-info'>Success ! Please check your email for reset link.</p>";
+        }
     } catch (Exception $e) {
-        echo 'Message could not be sent.';
+        echo "<p class='alert alert-danger'>FAILED ! Please try again.</p>";
         echo 'Mailer Error: ' . $mail->ErrorInfo;
-    }    
+    }
+            
 
 }
 ?>

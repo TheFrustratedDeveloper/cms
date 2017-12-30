@@ -42,7 +42,7 @@ while($row = mysqli_fetch_assoc($showAllfromCat)){
                             <div class="form-group">
                                 <label for="date">Content</label>
 
-                                <textarea id="textarea" name="content" class="form-control"><?php echo "<div class='alert alert-danger'>USE FULL SCREEN FOR BETTER USER EXPERIENCE<i class='fa fa-arrows-alt fa-2x' style='margin-left:215px;'aria-hidden='true'></i></div>"; ?></textarea>
+                                <textarea class="textarea" name="content" class="form-control"><?php echo "<div class='alert alert-danger'>USE FULL SCREEN FOR BETTER USER EXPERIENCE<i class='fa fa-arrows-alt fa-2x' style='margin-left:215px;'aria-hidden='true'></i></div>"; ?></textarea>
                             </div>
                             <div class="row">
                             <div class="form-group col-lg-9">

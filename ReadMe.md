@@ -1,6 +1,6 @@
 # UTOPIA - A Basic Simple Content Management System [FINAL YEAR PROJECT]
 
-Build Status : ## WIP 
+Build Status : WIP 
 
 ## Features
 - Blog like feel, interface
@@ -40,7 +40,7 @@ Please disclose any vulnerabilities found responsibly - report any security prob
 [theFrustratedDeveloper](https://github.com/TheFrustratedDeveloper/)
 
 ## Contributing
-Please submit bug reports, suggestions and pull requests to the [GitHub issue tracker](https://github.com/PHPMailer/PHPMailer/issues).
+Please submit bug reports, suggestions and pull requests to the [GitHub issue tracker](https://github.com/TheFrustratedDeveloper/cms/issues).
 
 If you found a mistake in the docs, or want to add something, go ahead and amend the wiki - anyone can edit it.
 

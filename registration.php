@@ -1,5 +1,16 @@
 <?php  include "includes/db_connect.php"; ?>
 <?php  include "includes/header.php"; ?>
+<?php 
+    require 'vendor/autoload.php';
+// new Pusher/Pusher('key','secret','app_id','cluster');
+    $options = array('cluster' => 'ap2','encrypted' => true);
+    $pusher = new Pusher\Pusher(
+    '7bb18b86772a3dd10359',
+    'ad682ae75c0534d9830e',
+    '472244',
+    $options);
+?>
+
  <script>
     window.setTimeout(function() {
     $(".alert").fadeTo(300, 0).slideUp(300, function(){
@@ -20,18 +31,17 @@ if(isset($_POST['addUser'])){
     $userImg = $_FILES['image']['name'];
     $userImgTemp = $_FILES['image']['tmp_name'];
     move_uploaded_file($userImgTemp,"images/users/$userImg");
-
-
 //validations
- validate($username,$email,$password,$confirmPassword,$fname,$lname,$for_role,$userImg);
-           
+ if(validate($username,$email,$password,$confirmPassword,$fname,$lname,$for_role,$userImg)){
+    $data['message'] = $username; 
+    $pusher->trigger('notifications','new_user', $data);
+    // header("refresh:0.1;url=index.php");   
+ }
+ 
 }
 ?>
     <!-- Navigation -->
-
     <?php  include "includes/nav.php"; ?>
-
-
     <!-- Page Content -->
     <div class="container">
 <section id="login">
@@ -39,7 +49,6 @@ if(isset($_POST['addUser'])){
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="form-wrap">
-                       
                         <h1>Register for content writer</h1><hr>
                      <form action="registration.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
@@ -89,11 +98,8 @@ if(isset($_POST['addUser'])){
                                 <input type="submit" value="Register" name="addUser" class="form-control btn btn-success">
                             </div>
                     </form>
-
                 <div class="form-group">
-                   
                 </div>
-                
                 </div>
             </div> <!-- /.col-xs-12 -->
         </div> <!-- /.row -->

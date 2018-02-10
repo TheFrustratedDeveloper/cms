@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2017 at 10:13 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: Jan 28, 2018 at 04:05 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -68,7 +68,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`cmt_id`, `cmt_post_id`, `cmt_author`, `cmt_email`, `cmt_content`, `cmt_status`, `cmt_date`) VALUES
-(28, 67, 'Dhruv', 'dhruvsaaaxena.1998@gmail.com', 'Awesome Content , Thanks for the informations :) ', 'dis-approved', '2017-10-18'),
+(28, 67, 'Dhruv', 'dhruvsaaaxena.1998@gmail.com', 'Awesome Content , Thanks for the informations :) ', 'approved', '2017-10-18'),
 (29, 97, 'sadad', '', 'asdadasd', 'approved', '2017-10-25'),
 (30, 60, 'saddas d', '', ' asdsad asd as', 'approved', '2017-10-25'),
 (31, 95, 'dhruv', '', 'bruh ', 'approved', '2017-10-31'),
@@ -161,7 +161,10 @@ INSERT INTO `online` (`id`, `session`, `time`) VALUES
 (46, '30mg9ger14snkiqf50cqdlshnb', 1513156737),
 (47, '8k70re4dr21k79assjqvigj1m5', 1513262770),
 (48, 'bbuiho7nmbuqjp72o2ronua1ud', 1513272233),
-(49, 'm2cprnvbl02ti99u69t368rjq1', 1513500617);
+(49, 'm2cprnvbl02ti99u69t368rjq1', 1513506055),
+(50, '7s520r95cpka9b6to0qekg2t9g', 1514364507),
+(51, '0177i41bh5nftn8dkd7i3289d1', 1514720057),
+(52, '48lkf91tvlrgsr13u2bj8rfaa1', 1515252067);
 
 -- --------------------------------------------------------
 
@@ -188,12 +191,12 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`post_id`, `cat_id`, `post_title`, `post_author`, `post_date`, `post_img`, `post_content`, `post_tag`, `post_status`, `views_count`) VALUES
 (94, 11, 'Prepare Statements ', 'dhruv', '2017-10-31', 'download.png', '<p>prepare smtmts working??? let\\\'s see</p>', 'prepare stmts', 'draft', 9),
-(95, 13, 'Prepare Statements 2', 'dhruv', '2017-12-02', 'javascript.png', '<p><img src=\"https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg\" style=\"width: 25%; float: right;\" class=\"note-float-right\">Prepare 2Â </p><p>Let\'s try new summernote wysiwyg editorÂ </p><p>new image try too </p><p>let\'s see if this one work <b>uploaded via local file</b></p><p><b>hey there guyz wat about you </b>, how you doin.</p><p><b><br></b></p>', 'prepare stmts, prepare statement, statement, prepare', 'published', 45),
-(97, 11, 'TEST POST WYSIWYG', 'dhruv', '2017-11-03', 'hui.png', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p><p><br></p><p><img src=\"http://www.blindtextgenerator.com/res/img/logo_blindtextgenerator.png\" style=\"width: 50%; float: none;\"></p><p><br></p><p><br></p><p><br></p><p style=\"text-align: center; \"></p>', 'html , WISIWYG', 'draft', 20),
+(95, 13, 'Prepare Statements 2', 'dhruv', '2017-12-02', 'javascript.png', '<p><img src=\"https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg\" style=\"width: 25%; float: right;\" class=\"note-float-right\">Prepare 2Â </p><p>Let\'s try new summernote wysiwyg editorÂ </p><p>new image try too </p><p>let\'s see if this one work <b>uploaded via local file</b></p><p><b>hey there guyz wat about you </b>, how you doin.</p><p><b><br></b></p>', 'prepare stmts, prepare statement, statement, prepare', 'published', 46),
+(97, 11, 'TEST POST WYSIWYG', 'dhruv', '2017-11-03', 'hui.png', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p><p><br></p><p><img src=\"http://www.blindtextgenerator.com/res/img/logo_blindtextgenerator.png\" style=\"width: 50%; float: none;\"></p><p><br></p><p><br></p><p><br></p><p style=\"text-align: center; \"></p>', 'html , WISIWYG', 'draft', 21),
 (99, 13, 'TESTAGAIN', 'dhruv', '2017-11-03', 'TOlOWER.PNG', 'het there how are you bruh , well im good , thanks fopr asdking good goins asdasdw asdasd asdawads', 'hey there, nruh , bruh , wassup , mc , bc ', 'draft', 4),
 (100, 13, 'dfsadf asd', 'dhruv', '2017-11-03', 'Capture.PNG', 'asda dsadDasdasd&nbsp; asdas&nbsp;', 'sds d', 'draft', 8),
 (101, 11, 'Dhruv', 'dhruv', '2017-11-27', 'Logo.png', 'sadadadsaDasDasd ASDaSDsad ad daSD AaDaDsDAD ASGDSFGADF', 'ssdsd', 'draft', 2),
-(102, 11, 'adasdadsada', 'dhruv', '2017-12-04', 'javascript.png', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p><p><br></p><p><img src=\\\"http://www.blindtextgenerator.com/res/img/logo_blindtextgenerator.png\\\" style=\\\"width: 526px; float: none;\\\"></p><p><br></p><p><br></p>', 'blind text, generator blah , blah ', 'published', 10);
+(102, 11, 'adasdadsada', 'dhruv', '2017-12-31', 'javascript.png', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p><p><br></p><p><br></p><p><br></p><p><br></p>', 'blind text, generator blah , blah ', 'published', 16);
 
 -- --------------------------------------------------------
 
@@ -259,9 +262,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `dateAdded`, `user_image`, `role`, `for_role`, `token`) VALUES
-(25, 'dhruv', '$2y$12$kyqqa0IiaWXk.ybaOkG7LehHs6zUyfQccpedBLW2CKhqoR9ZSOVm6', 'Dhruv', 'Saxenas', 'dhruvsaaaxena.1998@gmail.com', '2017-12-03', 'photo6114123745766516718.png', 'Admin', '1', NULL),
-(36, 'test', '$2y$12$dCqvKUiXM3xgf91s9quSEePnflYFIcY0xO8FTAa192p7SneDYT8du', 'Test', 'User', 'testUser@gmail.com', '2017-12-04', 'girl.png', 'Content Writer', '1', ''),
-(37, 'komal', '$2y$12$SOO5oTE5B.pR5F4CY1OXveDk1MIBytP.IvUOqbXbXVzWjX5JfEpMy', 'Komal', 'Saxena', 'ksaxena.1996@gmail.com', '2017-12-17', 'sed.PNG', 'Admin', NULL, '335c93fedc1933b35dc0f67c500eec14215ad3f407aa3f6b2d4ad0c5116e7c788a523d81444269e98bba4cbe1b5c1bd8c94e4e01e40f81819e42bb88');
+(25, 'dhruv', '$2y$12$kyqqa0IiaWXk.ybaOkG7LehHs6zUyfQccpedBLW2CKhqoR9ZSOVm6', 'Dhruv', 'Saxenas', 'dhruvsaaaxena.1998@gmail.com', '2017-12-03', 'photo6114123745766516718.png', 'Admin', '1', '3052e621bdbb8de8cc385570af710f1cb929e788a6ac4fcb326039756bb9195ec59564fc677e4b2d7cd3a38510549bc5ab6a705b6d49615455c08c0a');
 
 --
 -- Indexes for dumped tables
@@ -343,7 +344,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `online`
 --
 ALTER TABLE `online`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -367,7 +368,7 @@ ALTER TABLE `subscribers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,19 +1,20 @@
 <?php  include "includes/db_connect.php"; ?>
 <?php  include "includes/header.php"; ?>
-<?php 
-    // Import PHPMailer classes into the global namespace
-// These must be at the top of your script, not inside a function
+<?php  include "class/config.php";
+//only use when you are not using composer (not-recommended)
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
+
+// require 'vendor/phpmailer/phpmailer/src/Exception.php';
+// require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+// require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 //Load composer's autoloader
 require 'vendor/autoload.php';
-// require 'class/config.php';
-
-// $mail = new PHPMailer(true);
-// echo get_class($mail);
 ?>
-
 <!-- Navigation -->
 <?php  include "includes/nav.php"; ?>
 
@@ -33,8 +34,6 @@ if(isset($_SESSION['role'])){
     redirect('/cms/');
 }
 ?>
-
-
 
 <!-- Page Content -->
 <div class="container">
@@ -73,18 +72,18 @@ if(isset($_POST['recover-submit'])){
     try {
         //Server settings
         $mail->SMTPDebug = 0;                                       // Enable verbose debug output
-        $mail->isSMTP();                                            // Set mailer to use SMTP
+        $mail->isSMTP();                                           // Set mailer to use SMTP
         $mail->Host = config::SMTP_HOST;                          // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                                  // Enable SMTP authentication
         $mail->Username = config::SMTP_USER;                    // SMTP username
         $mail->Password = config::SMTP_PASSWORD;                // SMTP password
         $mail->Port = config::SMTP_PORT;                       // TCP port to connect to
-        // $mail->SMTPSecure = 'ssl';                          //Enable SSL encryption for google mail  
-        $mail->SMTPSecure = 'tls';                          // Enable TLS encryption, `ssl` also accepted
+        $mail->SMTPSecure = 'tls';
+        // $mail->SMTPSecure = 'tls';                          // Enable TLS encryption, `ssl` also accepted
         $mail->CharSet = 'UTF-8';                                   
                         // TCP port to connect to
         //Recipients
-        $mail->setFrom('dhruvsaaaxena.1998@gmail.com', 'Dhruv Saxena');
+        $mail->setFrom('thefrustratedDeveloper@dhruvsaxena.me', 'noReply');
         $mail->addAddress($email);     // Add a recipient
         $mail->addReplyTo('info@example.com', 'ReplyTo');
     
@@ -110,8 +109,6 @@ if(isset($_POST['recover-submit'])){
         echo "<p class='alert alert-danger'>FAILED ! Please try again.</p>";
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     }
-            
-
 }
 ?>
                                         <div class="form-group">
@@ -134,10 +131,7 @@ if(isset($_POST['recover-submit'])){
             </div>
         </div>
     </div>
-
     <hr>
-
     <?php include "includes/footer.php";?>
-
 </div> <!-- /.container -->
 

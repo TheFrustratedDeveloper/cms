@@ -565,7 +565,7 @@
                                 $registerQuery = mysqli_query($connect,$registerUser);
                                 if(!$registerQuery){die(mysqli_error($connect));}else{
                                     echo "<script>alert('User Registered! Please wait while we verify the account')</script>";
-                                    header("refresh:0.1;url=index.php");
+                                    return true;
                                 }
                             }
                         }

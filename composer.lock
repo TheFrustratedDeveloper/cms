@@ -4,24 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d67203b6e9fc952ae681c538683a497",
+    "content-hash": "4ddf6f4326141b6832c28d2836531860",
     "packages": [
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.0.1",
+            "version": "v6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "992392437c2e2784e0dc41446024fe411d293c96"
+                "reference": "44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/992392437c2e2784e0dc41446024fe411d293c96",
-                "reference": "992392437c2e2784e0dc41446024fe411d293c96",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6",
+                "reference": "44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6",
                 "shasum": ""
             },
             "require": {
                 "ext-ctype": "*",
+                "ext-filter": "*",
                 "php": ">=5.5.0"
             },
             "require-dev": {
@@ -69,7 +70,59 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2017-09-14T16:47:12+00:00"
+            "time": "2018-01-05T13:19:58+00:00"
+        },
+        {
+            "name": "pusher/pusher-php-server",
+            "version": "v3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pusher/pusher-http-php.git",
+                "reference": "03d3417748fc70a889c97271e25e282ff1ff0ae3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/03d3417748fc70a889c97271e25e282ff1ff0ae3",
+                "reference": "03d3417748fc70a889c97271e25e282ff1ff0ae3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": "^5.4 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pusher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Library for interacting with the Pusher REST API",
+            "keywords": [
+                "events",
+                "messaging",
+                "php-pusher-server",
+                "publish",
+                "push",
+                "pusher",
+                "real time",
+                "real-time",
+                "realtime",
+                "rest",
+                "trigger"
+            ],
+            "time": "2017-10-20T11:18:01+00:00"
         }
     ],
     "packages-dev": [],

@@ -1,16 +1,14 @@
 {
-    "name": "dhruv/cms",
+    "name": "cms/mail",
+    "description": "PHPMAILER and PUSHER",
+    "type": "phpmailer",
     "require": {
-        "phpmailer/phpmailer": "^6.0"
-    },
-    "autoload": {
-        "classmap": [
-            "class"
-        ]
+        "phpmailer/phpmailer": "^6.0",
+        "pusher/pusher-php-server": "^3.0"
     },
     "authors": [
         {
-            "name": "Dhruv Saxena",
+            "name": "theFrustratedDeveloper",
             "email": "dhruvsaaaxena.1998@gmail.com"
         }
     ]

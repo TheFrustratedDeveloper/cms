@@ -172,3 +172,23 @@ $postPenCount           =       countGraph('users','role','pending');
     </div>
     <!-- /#wrapper -->
 <?php include "includes/footer.php" ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function(){
+        var pusher = new Pusher('7bb18b86772a3dd10359', {
+        cluster: 'ap2',
+        encrypted: true
+        });
+
+        var channel = pusher.subscribe('notifications');
+        channel.bind('new_user', function(data) {
+        toastr.success(`${data.message} just registered as content writer`);
+        console.log(data.message);
+        });
+    });
+</script>

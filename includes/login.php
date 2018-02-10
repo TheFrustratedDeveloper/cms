@@ -1,4 +1,4 @@
-<?php 
+<?php
     include "db_connect.php";
     include "../admin/includes/functions.php";
     session_start();

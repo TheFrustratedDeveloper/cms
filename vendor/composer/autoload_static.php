@@ -9,24 +9,20 @@ class ComposerStaticInitb170fdff7aa177800da7ec73076f0e77
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
+            'Pusher\\' => 7,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
+        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
-    );
-
-    public static $classMap = array (
-        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
-        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
-        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
-        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
-        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
-        'config' => __DIR__ . '/../..' . '/class/config.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -34,7 +30,6 @@ class ComposerStaticInitb170fdff7aa177800da7ec73076f0e77
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitb170fdff7aa177800da7ec73076f0e77::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitb170fdff7aa177800da7ec73076f0e77::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitb170fdff7aa177800da7ec73076f0e77::$classMap;
 
         }, null, ClassLoader::class);
     }

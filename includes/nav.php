@@ -47,7 +47,7 @@
                             echo "<li><a href='/cms/login'>Login</a></li>";
                         }
                     ?>
-                    <li class="<?php echo $contactClass; ?>"><a href="contact">Contact US</a></li>
+                    <li class="<?php echo $contactClass; ?>"><a href="/cms/contact">Contact US</a></li>
                 </ul>   
             </div>
         </div>

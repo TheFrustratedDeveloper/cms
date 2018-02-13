@@ -1,8 +1,5 @@
 <?php include "includes/header.php" ?>
     <div id="wrapper">
-       <?php 
-            
-        ?>
         <!-- Navigation -->
         <?php include "includes/nav.php" ?>
         <div id="page-wrapper">
@@ -17,9 +14,6 @@
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
                             </li>
                         </ol>     
                 <!-- /.row -->

@@ -33,7 +33,7 @@
                     <a href="/cms/post/<?php echo $postID?>"><?php echo $postTitle ?></a>
                     </h2>
                     <p class="lead">
-                        by <a href="index.php"><?php echo $postAuthor ?></a>
+                        by <a href="author_posts.php?author=<?php echo $postAuthor ?>"><?php echo $postAuthor ?></a>
                     </p>
                     <p><span class="glyphicon glyphicon-time"></span><?php echo "   ".$postDate ?></p>
                     <hr>
@@ -114,7 +114,7 @@
                 ?>
                   <div class="media">
                     <a class="pull-left" href="#">
-                        <img class="media-object" width="50" height="50" src="images/users/user.jpg" alt="">
+                        <img class="media-object" width="50" height="50" src="images/users/user.png" alt="image">
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading"><?php echo $authorName; ?>

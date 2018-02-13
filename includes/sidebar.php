@@ -63,7 +63,7 @@
                     
                         <span class="input-group-btn">
                             <button name="subs" class="btn btn-primary" value="subscriber" type="submit">
-                              Subscriber&nbsp;&nbsp;<i class="fa fa-users" aria-hidden="true"></i>
+                              Subscribe Us&nbsp;<i class="fa fa-users" aria-hidden="true"></i>
                             </button>
                         </span>
                     </div>
@@ -113,7 +113,7 @@
                             while($row = mysqli_fetch_assoc($showAllfromCat)){
                                 $navID = $row['cat_id'];
                                 $navTitle = $row['cat_title'];
-                                echo "<li><a href='sidebarCategory.php?s_id=$navID'>$navTitle</a></li>";
+                                echo "<li><a href='/cms/sidebarCategory/$navID'>$navTitle</a></li>";
                             }
                             ?>
                             </ul>
@@ -128,7 +128,7 @@
                             while($row = mysqli_fetch_assoc($showAllfromCat)){
                                 $navID = $row['cat_id'];
                                 $navTitle = $row['cat_title'];
-                                echo "<li><a href='sidebarCategory.php?s_id=$navID'>$navTitle</a></li>";
+                                echo "<li><a href='/cms/sidebarCategory/$navID'>$navTitle</a></li>";
                             }
                             ?>
                             </ul>

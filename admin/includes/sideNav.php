@@ -21,7 +21,7 @@
                         <a href="cmt_list.php"><i class="fa fa-fw fa-comment"></i> Comments</a>
                     </li>
                     <?php 
-                      if($_SESSION['role'] == 'Admin'){
+                      if($_SESSION['role'] == 1){
                           ?>
                           <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#user"><i class="fa fa-fw fa-user"></i> User <i class="fa fa-fw fa-sort-desc"></i></a>

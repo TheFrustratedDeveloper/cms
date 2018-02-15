@@ -28,7 +28,17 @@
                         <i class="fa fa-file-text fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class='huge'><?php echo $postCount = panelCount('posts'); ?></div>
+                        <div class='huge'><?php 
+                        if($_SESSION['role'] == 1){
+                                echo $postCount = panelCount('posts'); 
+                            }else{
+                                $username = $_SESSION['username'];
+                                echo $ownPostCount = countGraph('posts','post_author','$username');
+                                $postCount = panelCount('posts'); 
+                            }
+
+                            // countGraph
+                         ?></div>
                         <div>Posts</div>
                     </div>
                 </div>
@@ -98,10 +108,10 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class='huge'><?php 
-                            if($_SESSION['role'] == 'Admin'){
+                            if($_SESSION['role'] == 1){
                                 echo $usrCount = subCount('users');  
                             }else{
-                                echo $usrCount = countGraph('users','role','Content writer');
+                                echo $usrCount = countGraph('users','role',2);
                             }
                               ?>
                         </div>

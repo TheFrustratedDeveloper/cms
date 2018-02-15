@@ -323,11 +323,11 @@
         global $connect ;
         if(isset($_GET['delete'])){
             if(isset($_SESSION['role'])){
-                if($_SESSION['role'] == 'Admin'){
+                if($_SESSION['role'] == 1){
                     $delID = mysqli_real_escape_string($connect,$_GET['delete']);
                     $query = "DELETE FROM users WHERE user_id = $delID";
                     $delQuery = mysqli_query($connect,$query);
-                    if(!$delQuery){die();}else{
+                    if(!$delQuery){}else{
                         echo "<div class='alert alert-danger'>
                         <strong>User Deleted!</strong>
                         </div>";
@@ -342,7 +342,7 @@
         if(isset($_GET['adminApprove'])){
             $userID = $_GET['adminApprove'];
             $username = $_GET['username'];
-            $query = "UPDATE users SET role = 'Admin' WHERE user_id = $userID";
+            $query = "UPDATE users SET role = 1 WHERE user_id = $userID";
             $makeAdmin = mysqli_query($connect,$query);
             if(!$makeAdmin){die();}else{
                 echo "<div class='alert alert-success'>
@@ -357,7 +357,7 @@
         if(isset($_GET['contentW'])){
             $userID = $_GET['contentW'];
             $username = $_GET['username'];
-            $query = "UPDATE users SET role = 'Content Writer' WHERE user_id = $userID";
+            $query = "UPDATE users SET role = 2 WHERE user_id = $userID";
             $makeSubscriber = mysqli_query($connect,$query);
             if(!$makeSubscriber){die();}else{header( "Location:users_list.php");}
         }
@@ -366,63 +366,63 @@
         global $connect;
         if(isset($_GET['block'])){
             $userID = $_GET['block'];
-            $query = "UPDATE users SET role = 'Blocked' WHERE user_id = $userID";
+            $query = "UPDATE users SET role = 4 WHERE user_id = $userID";
             $blocked = mysqli_query($connect,$query);
             if(!$blocked){die();}else{header("Location:users_list.php");}
         }
     }
-    function editUser(){
-        global $connect;
+    // function editUser(){
+    //     global $connect;
 
-        if(isset($_POST['editUser'])){
+    //     if(isset($_POST['editUser'])){
 
-            $id = $_GET['id'];
-            $firstname = $_POST['fname'];
-            $lastname = $_POST['lname'];
-            $userImg = $_FILES['image']['name'];
-            $userImgTemp = $_FILES['image']['tmp_name'];
-            $username = $_POST['username'];
-            $oldPassword = $_POST['oldPassword'];
+    //         $id = $_GET['id'];
+    //         $firstname = $_POST['fname'];
+    //         $lastname = $_POST['lname'];
+    //         $userImg = $_FILES['image']['name'];
+    //         $userImgTemp = $_FILES['image']['tmp_name'];
+    //         $username = $_POST['username'];
+    //         $oldPassword = $_POST['oldPassword'];
 
-            $selectOLDPassword = "SELECT * FROM users WHERE user_id = $id";
-            $showOLDPassword = mysqli_query($connect,$selectOLDPassword);
-            $row = mysqli_fetch_assoc($showOLDPassword);
-            $oldPswrd = $row['password'];
+    //         $selectOLDPassword = "SELECT * FROM users WHERE user_id = $id";
+    //         $showOLDPassword = mysqli_query($connect,$selectOLDPassword);
+    //         $row = mysqli_fetch_assoc($showOLDPassword);
+    //         $oldPswrd = $row['password'];
 
-            if(password_verify("$oldPassword","$oldPswrd")){
-                $password = $_POST['password'];
-                $confirmPassword = $_POST['cnfrmPassword'];
-                if($password !== $confirmPassword){
-                    echo   "<div class='alert alert-warning'>
-                            <strong>Password Incorrect !</strong>
-                            <small>Both Passwords should be same.</small>
-                            </div>";
-                    header( "refresh:1; url=users_list.php?source=editUser&id=$id");
-                    die();
-                }else{
-                    $password = password_hash("$password",PASSWORD_BCRYPT,array('cost' => 12));
-                    $dateAdded = date('d-m-y');
-                    move_uploaded_file($userImgTemp,"../images/users/$userImg");
-                    if(empty($userImg)){
-                        $imgQuery = "SELECT * FROM users WHERE user_id = $id";
-                        $selectImg = mysqli_query($connect,$imgQuery);
-                        while($row = mysqli_fetch_assoc($selectImg)){
-                            $userImg = $row['user_image'];
-                        }
-                    }
-                    $query = "UPDATE users SET first_name='$firstname', last_name='$lastname', user_image='$userImg', username='$username' , password='$password' , dateAdded = now() WHERE user_id = $id";
-                    $addUser = mysqli_query($connect,$query);
-                    if(!$addUser){die();}else{
-                        echo "  <div class='alert alert-success'>
-                                <strong>Updated Sucessfully!</strong>
-                                </div>  ";
-                        header( "refresh:3; url=index.php");
-                    }
-                }
-            }  //checking password ends
-        }
-         //mainIF statement ends
-    } //function ends
+    //         if(password_verify("$oldPassword","$oldPswrd")){
+    //             $password = $_POST['password'];
+    //             $confirmPassword = $_POST['cnfrmPassword'];
+    //             if($password !== $confirmPassword){
+    //                 echo   "<div class='alert alert-warning'>
+    //                         <strong>Password Incorrect !</strong>
+    //                         <small>Both Passwords should be same.</small>
+    //                         </div>";
+    //                 header( "refresh:1; url=users_list.php?source=editUser&id=$id");
+    //                 die();
+    //             }else{
+    //                 $password = password_hash("$password",PASSWORD_BCRYPT,array('cost' => 12));
+    //                 $dateAdded = date('d-m-y');
+    //                 move_uploaded_file($userImgTemp,"../images/users/$userImg");
+    //                 if(empty($userImg)){
+    //                     $imgQuery = "SELECT * FROM users WHERE user_id = $id";
+    //                     $selectImg = mysqli_query($connect,$imgQuery);
+    //                     while($row = mysqli_fetch_assoc($selectImg)){
+    //                         $userImg = $row['user_image'];
+    //                     }
+    //                 }
+    //                 $query = "UPDATE users SET first_name='$firstname', last_name='$lastname', user_image='$userImg', username='$username' , password='$password' , dateAdded = now() WHERE user_id = $id";
+    //                 $addUser = mysqli_query($connect,$query);
+    //                 if(!$addUser){die();}else{
+    //                     echo "  <div class='alert alert-success'>
+    //                             <strong>Updated Sucessfully!</strong>
+    //                             </div>  ";
+    //                     header( "refresh:3; url=index.php");
+    //                 }
+    //             }
+    //         }  //checking password ends
+    //     }
+    //      //mainIF statement ends
+    // } //function ends
 
     function onlineUserCount(){
         if(isset($_GET['chkOnline'])){
@@ -446,7 +446,10 @@
         }
     }
     onlineUserCount();
-
+    // function panelCount($table,$column,$author){
+    //     global $connect;
+    //     $query = "SELECT * FROM $table WHERE $column = '$author'";
+    // }
     function panelCount($table){
         global $connect;
         $query = "SELECT * FROM $table";
@@ -501,9 +504,9 @@
                     $_SESSION['last_name'] = $login_lname;
                     $_SESSION['role'] = $login_role;
                     $_SESSION['user_id'] = $login_id;
-                    if($login_role == 'Admin'){
+                    if($login_role == 1){
                         header("Location: ../admin");
-                    }else if($login_role == 'Content Writer'){
+                    }else if($login_role == 2){
                         echo "<script>alert('You are registered as Content writer. Thanks for showing intrest in US')</script>";
                         $_SESSION['username'] = $login_username;
                         $_SESSION['first_name'] =  $login_fname;
@@ -583,7 +586,29 @@ function subscriber($email){
         $subscribed = mysqli_query($connect,$query);
         return 0;
     }
-
-
+}
+function displayAdminButton($usrID,$username){
+    echo "<td><a class='form-control btn btn-primary' href='users_list.php?adminApprove=$usrID&username=$username'>Admin</a></td>";
+}
+function displayBlockButton($usrID){
+    echo "<td><a class='form-control btn btn-warning' href='users_list.php?block=$usrID'>Block</a></td>";
+}
+function displayDeleteButton($usrID){
+    echo "<td><a onClick=\"javascript : return confirm('Are you Sure to Delete This User?'); \" class='form-control btn btn-danger' href='users_list.php?delete=$usrID'>Delete</a></td>";
+}
+function displayContentWriterButton($usrID,$username){
+    echo "<td><a class='form-control btn btn-success' href='users_list.php?contentW=$usrID&username=$username'>Content Writer</a></td>";
+}
+function displayBlockAndDelete($usrID){
+    displayBlockButton($usrID);
+    displayDeleteButton($usrID);
+}
+function returnOldPassword($loginID){
+    global $connect;
+    $selectOLDPassword = "SELECT * FROM users WHERE user_id = $loginID";
+    $showOLDPassword = mysqli_query($connect,$selectOLDPassword);
+    $row = mysqli_fetch_assoc($showOLDPassword);
+    $oldPswrd = $row['password'];
+    return $oldPswrd;
 }
 ?>

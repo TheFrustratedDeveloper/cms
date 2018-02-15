@@ -9,11 +9,11 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Add Category
-                            <small>Author_Name</small>
+                            <small><?php echo $_SESSION['username']; ?></small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html"> Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.php"> Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-file"></i> <a href="add_cat.php"> Add Category</a>

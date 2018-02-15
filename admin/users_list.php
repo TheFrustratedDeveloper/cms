@@ -1,7 +1,7 @@
 <?php include "includes/header.php" ?>
 <?php 
     if(isset($_SESSION['role'])){
-        if($_SESSION['role'] != 'Admin'){
+        if($_SESSION['role'] != 1){
             header("Location:index.php");
         }
     }
@@ -15,7 +15,15 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            All Posts
+                            <?php 
+                                if(isset($_GET['source'])){
+                                    if($_GET['source'] == 'add_user'){
+                                        echo "Add User";
+                                    }
+                                }else{
+                                    echo "All Users";
+                                }
+                            ?>
                             <small>Author_Name</small>
                         </h1>
                         <ol class="breadcrumb">
@@ -39,8 +47,9 @@
                                         include "includes/addUser.php";
                                     break ;
                                     case 'editUser';
-                                        editUser();
-                                        include "includes/editUser.php";
+                                        redirect('index.php');
+                                        // editUser();
+                                        // include "includes/editUser.php";
                                     break ;
                                 default: include "includes/viewAllUsers.php";
                             }

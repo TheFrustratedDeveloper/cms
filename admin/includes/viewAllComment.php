@@ -10,7 +10,7 @@
                                     <th>In Response to</th>
                                     <th>Status</th>
                                     <th>Date</th>
-                                    <th colspan="2">Options</th>
+                                    <th>Options</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>

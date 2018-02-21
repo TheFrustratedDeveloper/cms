@@ -6,6 +6,13 @@
     function redirect($location){
         header("Location:$location");
     }
+    function notAllowed($regex,$location){
+        $dir = __DIR__;
+        $pattern = $regex;
+        if(preg_match($pattern,$dir)){
+            redirect($location);
+        }
+    }
     function imagePlaceHolder($image = ''){
         if(!$image){
             return '../images/default.png';
@@ -221,8 +228,12 @@
             echo "<td><a href='../post.php?p_id=$pID'>$responseTo</a></td>";
             echo "<td>$cmtStatus</td>";
             echo "<td>$cmtDate</td>";
-            echo "<td><a class='btn btn-info' href='cmt_list.php?approve=$cmtID'>Approve</a></td>";
-            echo "<td><a class='btn btn-warning ' style='margin-left:5px;' href='cmt_list.php?disapprove=$cmtID'>Dis-Approve</a></td>";
+
+            if($cmtStatus == 'approved'){
+                echo "<td><a class='btn btn-warning ' style='margin-left:5px;' href='cmt_list.php?disapprove=$cmtID'>Dis-Approve</a></td>";
+            }else{
+                echo "<td><a class='btn btn-info' href='cmt_list.php?approve=$cmtID'>Approve</a></td>";
+            }
             echo "<td><a class='btn btn-danger' style='margin-left:5px;' href='cmt_list.php?delete=$cmtID'>Delete</a></td>";
             echo "</tr>";
         }
@@ -327,7 +338,7 @@
                     $delID = mysqli_real_escape_string($connect,$_GET['delete']);
                     $query = "DELETE FROM users WHERE user_id = $delID";
                     $delQuery = mysqli_query($connect,$query);
-                    if(!$delQuery){}else{
+                    if(!$delQuery){die();}else{
                         echo "<div class='alert alert-danger'>
                         <strong>User Deleted!</strong>
                         </div>";

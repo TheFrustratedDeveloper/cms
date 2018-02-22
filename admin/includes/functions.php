@@ -15,7 +15,7 @@
     }
     function imagePlaceHolder($image = ''){
         if(!$image){
-            return '../images/default.png';
+            return '../images/cover/default.png';
         }else{
             return $image;
         }
@@ -96,10 +96,11 @@
             }else{
                 $postImg = $_FILES['image']['name'];
                 $postImgTemp = $_FILES['image']['tmp_name'];
+                print_r($postImgTemp);
                 $postTag = $_POST['tags'];
                 $postContent = escape($_POST['content']);
                 $postDate = date('d-m-y');
-                move_uploaded_file($postImgTemp,"../images/$postImg");
+                move_uploaded_file($postImgTemp,"../images/cover/{$postImg}");
                 $stmt = mysqli_prepare($connect,"INSERT INTO posts(post_title,cat_id,post_author,post_img,post_content,post_tag,post_status,post_date) VALUES(?,?,?,?,?,?,?,now())");
                 mysqli_stmt_bind_param($stmt,"sisssss",$postTitle,$cat_id,$postAuthor,$postImg,$postContent,$postTag,$postStatus);
                 mysqli_execute($stmt);
@@ -175,7 +176,7 @@
         $img = $_FILES['image']['name'];
         $tempImg = $_FILES['image']['tmp_name'];
         $date = date('d-m-y');
-        move_uploaded_file($tempImg,"../images/$img");
+        move_uploaded_file($tempImg,"../images/cover/{$img}");
         if(empty($img)){
             $imgQuery = "SELECT * FROM posts WHERE post_id = $p_id";
             $selectImg = mysqli_query($connect,$imgQuery);

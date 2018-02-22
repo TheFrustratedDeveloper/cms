@@ -38,10 +38,11 @@
                     <?php 
                         if(isset($_SESSION['role'])){
                             echo "<li><a href='/cms/admin'>Admin Panel</a></li>";
-                            if(isset($_GET['p_id'])){
+                            if($_SESSION['role'] == 1){
+                                if(isset($_GET['p_id'])){
                                 $postID = $_GET['p_id'];
-                                
                                 echo "<li><a href='/cms/admin/post_list.php?source=edit_post&p_id=$postID'>Edit Post</a></li>";
+                            }
                             }
                         }else{
                             echo "<li><a href='/cms/login'>Login</a></li>";

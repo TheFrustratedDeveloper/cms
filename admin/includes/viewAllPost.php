@@ -53,7 +53,7 @@
         $cmtRows = mysqli_num_rows($cmtCount);
         
         echo "<td><a href='comments.php?p_id=$postID'>$cmtRows</a></td>";
-        echo "<td><img width='100' height='50' src='../images/$postImg' alt='$postImg'></td>";
+        echo "<td><img width='100' height='50' src='../images/cover/{$postImg}' alt='$postImg'></td>";
 
         if($postStatus == 'published'){
             echo "<td><a class='btn btn-warning form-control' href='post_list.php?draft=$postID'>Draft</a></td>"; 

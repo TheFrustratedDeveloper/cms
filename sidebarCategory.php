@@ -49,7 +49,7 @@
                     <p><span class="glyphicon glyphicon-time"></span><?php echo "   ".$postDate ?></p>
                     <hr> 
                     <a href="post.php?p_id=<?php echo $postID?>">
-                        <img class="img-responsive" src="/cms/images/<?php echo $postImg;?>" alt="">
+                        <img class="img-responsive" src="/cms/images/cover/<?php echo $postImg;?>" alt="">
                     </a> 
                     <hr>
                     <p><?php echo $postContent ?></p>

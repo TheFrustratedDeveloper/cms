@@ -37,7 +37,7 @@
                     </p>
                     <p><span class="glyphicon glyphicon-time"></span><?php echo "   ".$postDate ?></p>
                     <hr>
-                        <img class="img-responsive" src="/cms/images/<?php echo imagePlaceHolder($postImg);?>" alt="">
+                        <img class="img-responsive" src="/cms/images/cover/<?php echo imagePlaceHolder($postImg);?>" alt="">
                     <hr>
                     <p><?php echo $postContent ?></p>
                     <div style="float:right;margin-right:5px;margin-top:5px;">

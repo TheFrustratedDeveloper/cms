@@ -83,7 +83,7 @@ if(isset($_POST['recover-submit'])){
         $mail->CharSet = 'UTF-8';                                   
                         // TCP port to connect to
         //Recipients
-        $mail->setFrom('thefrustratedDeveloper@dhruvsaxena.me', 'noReply');
+        $mail->setFrom('someone@example.com', 'noReply');
         $mail->addAddress($email);     // Add a recipient
         $mail->addReplyTo('info@example.com', 'ReplyTo');
     

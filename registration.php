@@ -4,11 +4,7 @@
     require 'vendor/autoload.php';
 // new Pusher/Pusher('key','secret','app_id','cluster');
     $options = array('cluster' => 'ap2','encrypted' => true);
-    $pusher = new Pusher\Pusher(
-    '7bb18b86772a3dd10359',
-    'ad682ae75c0534d9830e',
-    '472244',
-    $options);
+    $pusher = new Pusher\Pusher('7bb18b86772a3dd10359','ad682ae75c0534d9830e','472244',$options);
 ?>
 
  <script>

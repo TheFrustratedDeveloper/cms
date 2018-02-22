@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2018 at 08:37 PM
+-- Generation Time: Feb 22, 2018 at 07:33 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -62,31 +62,6 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messages`
---
-
-CREATE TABLE `messages` (
-  `id` int(3) NOT NULL,
-  `username` varchar(32) NOT NULL,
-  `message` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`id`, `username`, `message`, `date`) VALUES
-(2, 'dhruv', 'Hi There', '2017-12-13 05:31:33'),
-(3, 'dhruv', 'Hello hi are you', '2017-12-13 05:41:33'),
-(4, 'dhruv', 'Hi', '2017-12-13 05:42:41'),
-(5, 'dhruv', 'Hello', '2017-12-13 05:42:58'),
-(6, 'dhruv', 'Hi Palash', '2017-12-13 05:43:49'),
-(7, 'dhruv', 'hi palash 2', '2017-12-13 05:44:00');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `online`
 --
 
@@ -95,6 +70,20 @@ CREATE TABLE `online` (
   `session` varchar(255) NOT NULL,
   `time` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `online`
+--
+
+INSERT INTO `online` (`id`, `session`, `time`) VALUES
+(56, '8eljb97pl0gpe2hjg1u9ujpq51', 1518292394),
+(57, 'eifup6bl5e7glljvned923a7hi', 1518515237),
+(58, '28ojfl7grb2vsiiq9ulmav4iuv', 1518559392),
+(59, 'rmdqtq03r2sssvtlh4vl2226nn', 1518601359),
+(60, '8c7ma73b74lunb99iq02bm4ls4', 1518696721),
+(61, 'lmmslipbmukgl2boj86pljj3nn', 1518725688),
+(62, 'svlo92fiid4jvebi9o6ee6hk08', 1519207721),
+(63, 'lfuo1v2cvqptj7ja9n1o2pbjpe', 1519218069);
 
 -- --------------------------------------------------------
 
@@ -131,10 +120,11 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`role_id`, `role_title`) VALUES
+(-1, 'Block'),
 (1, 'Admin'),
-(2, 'Content writer'),
+(2, 'ContentWriter'),
 (3, 'Subscriber'),
-(4, 'block');
+(4, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -152,6 +142,7 @@ CREATE TABLE `subscribers` (
 --
 
 INSERT INTO `subscribers` (`sub_id`, `sub_email`) VALUES
+(22, 'blah@blah.com'),
 (21, 'dhruvsaaaxena.1998@gmail.com');
 
 -- --------------------------------------------------------
@@ -169,8 +160,8 @@ CREATE TABLE `users` (
   `email` varchar(128) NOT NULL,
   `dateAdded` date NOT NULL,
   `user_image` text NOT NULL,
-  `role` varchar(32) NOT NULL DEFAULT 'pending',
-  `for_role` varchar(32) DEFAULT NULL,
+  `role` int(32) NOT NULL DEFAULT '4',
+  `for_role` int(32) DEFAULT NULL,
   `token` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -179,7 +170,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `dateAdded`, `user_image`, `role`, `for_role`, `token`) VALUES
-(39, 'root', '$2y$12$sMkEQKA3W.wZR53JpMuKDe1TyOTVZFGYNnwASY646hiJUrOUcyDSu', 'Default', 'User', 'defaultUser@gmail.com', '2018-02-11', 'boy.png', 'Admin', NULL, NULL);
+(48, 'root', '$2y$12$SL3UOb7czIDd.sQn.jfkm.V5fsYB5rI6Et1fBGnyQy1CE6UqSYLDW', 'Default', 'User', 'someone@example.com', '2018-02-16', 'boy.png', 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -196,12 +187,6 @@ ALTER TABLE `category`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`cmt_id`);
-
---
--- Indexes for table `messages`
---
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `online`
@@ -249,25 +234,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `cmt_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT for table `messages`
---
-ALTER TABLE `messages`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cmt_id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `online`
 --
 ALTER TABLE `online`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -279,13 +258,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `subscribers`
 --
 ALTER TABLE `subscribers`
-  MODIFY `sub_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `sub_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -96,7 +96,6 @@
             }else{
                 $postImg = $_FILES['image']['name'];
                 $postImgTemp = $_FILES['image']['tmp_name'];
-                print_r($postImgTemp);
                 $postTag = $_POST['tags'];
                 $postContent = escape($_POST['content']);
                 $postDate = date('d-m-y');

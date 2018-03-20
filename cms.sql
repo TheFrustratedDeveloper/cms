@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2018 at 07:33 AM
+-- Generation Time: Mar 20, 2018 at 02:31 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -83,7 +83,11 @@ INSERT INTO `online` (`id`, `session`, `time`) VALUES
 (60, '8c7ma73b74lunb99iq02bm4ls4', 1518696721),
 (61, 'lmmslipbmukgl2boj86pljj3nn', 1518725688),
 (62, 'svlo92fiid4jvebi9o6ee6hk08', 1519207721),
-(63, 'lfuo1v2cvqptj7ja9n1o2pbjpe', 1519218069);
+(63, 'lfuo1v2cvqptj7ja9n1o2pbjpe', 1519218069),
+(64, 'eajnucjvpnmrqvf80b5oo0t7j9', 1519305968),
+(65, 'r7jifu9lloqg15ouuqhnhkm5jf', 1519299091),
+(66, 'f2ele2g1puj1cndav5b3ognt5k', 1520018515),
+(67, '5an64mhsh4ll5tff6mkejs2ce4', 1521552704);
 
 -- --------------------------------------------------------
 
@@ -103,6 +107,14 @@ CREATE TABLE `posts` (
   `post_status` varchar(22) NOT NULL DEFAULT 'draft',
   `views_count` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `cat_id`, `post_title`, `post_author`, `post_date`, `post_img`, `post_content`, `post_tag`, `post_status`, `views_count`) VALUES
+(6, 19, 'test', 'root', '2018-03-03', 'social.png', 'ja sd;aljdlajdl adlajdajdljalskdja dklj sldjsa kdjlakj d', 'test', 'published', 4),
+(7, 19, 'WHat is happening', 'root', '2018-03-03', 'Free-Portfolio-WordPress-Themes.gif', 'One day very soon wentÂ ', 'idk', 'published', 6);
 
 -- --------------------------------------------------------
 
@@ -170,7 +182,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `dateAdded`, `user_image`, `role`, `for_role`, `token`) VALUES
-(48, 'root', '$2y$12$SL3UOb7czIDd.sQn.jfkm.V5fsYB5rI6Et1fBGnyQy1CE6UqSYLDW', 'Default', 'User', 'someone@example.com', '2018-02-16', 'boy.png', 1, NULL, NULL);
+(48, 'root', '$2y$12$.4xIyK8L9jB.Q/rFSC18R.jEAKEz7Avg2aVfvC5tj7TM.Ms8hdOrq', 'Default', 'User', 'someone@example.com', '2018-03-03', 'Web.gif', 1, NULL, NULL),
+(49, 'test', '$2y$12$P5jvadQ1E.fDNynEv.qK3eaiY5jTcrhDKzn6mZXqMGYrgNzwmWJky', 'test', 'username', 'test@name.com', '2018-02-22', 'girl.png', 2, NULL, NULL),
+(51, 'wew', '$2y$12$Xs09VUEfYhpxy9U8BRIwLOy6IgI8pCN9Kg529S/jHmS6zf6vhEOFO', 'Test', 'User', 'tesytesy@ts.com', '2018-02-22', 'testIamge.jpg', 2, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -240,13 +254,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `online`
 --
 ALTER TABLE `online`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -264,7 +278,7 @@ ALTER TABLE `subscribers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -33,13 +33,13 @@ if(isset($_SESSION['role'])){
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
-											<input name="username" type="text" class="form-control" placeholder="Enter Username">
+											<input name="username" type="text" class="form-control" placeholder="Enter Username" required>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-											<input name="password" type="password" class="form-control" placeholder="Enter Password">
+											<input name="password" type="password" class="form-control" placeholder="Enter Password" required>
 										</div>
 									</div>
 									<div class="form-group">

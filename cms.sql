@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2018 at 02:31 PM
+-- Generation Time: May 07, 2018 at 06:40 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -38,10 +38,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`cat_id`, `cat_title`) VALUES
-(19, 'Demo 1'),
-(20, 'Demo 2'),
-(21, 'Demo 3'),
-(22, 'Demo 4');
+(19, 'CSS'),
+(22, 'HTML'),
+(20, 'JAVA'),
+(24, 'New Category'),
+(21, 'PHP');
 
 -- --------------------------------------------------------
 
@@ -58,6 +59,13 @@ CREATE TABLE `comments` (
   `cmt_status` varchar(32) NOT NULL DEFAULT 'draft',
   `cmt_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`cmt_id`, `cmt_post_id`, `cmt_author`, `cmt_email`, `cmt_content`, `cmt_status`, `cmt_date`) VALUES
+(2, 7, 'Test Data', 'testEmail@gmail.com', 'Very Helpfull', 'approved', '2018-05-05');
 
 -- --------------------------------------------------------
 
@@ -76,18 +84,7 @@ CREATE TABLE `online` (
 --
 
 INSERT INTO `online` (`id`, `session`, `time`) VALUES
-(56, '8eljb97pl0gpe2hjg1u9ujpq51', 1518292394),
-(57, 'eifup6bl5e7glljvned923a7hi', 1518515237),
-(58, '28ojfl7grb2vsiiq9ulmav4iuv', 1518559392),
-(59, 'rmdqtq03r2sssvtlh4vl2226nn', 1518601359),
-(60, '8c7ma73b74lunb99iq02bm4ls4', 1518696721),
-(61, 'lmmslipbmukgl2boj86pljj3nn', 1518725688),
-(62, 'svlo92fiid4jvebi9o6ee6hk08', 1519207721),
-(63, 'lfuo1v2cvqptj7ja9n1o2pbjpe', 1519218069),
-(64, 'eajnucjvpnmrqvf80b5oo0t7j9', 1519305968),
-(65, 'r7jifu9lloqg15ouuqhnhkm5jf', 1519299091),
-(66, 'f2ele2g1puj1cndav5b3ognt5k', 1520018515),
-(67, '5an64mhsh4ll5tff6mkejs2ce4', 1521552704);
+(74, '8vbqnttfjn8a4v490unu893bee', 1525711257);
 
 -- --------------------------------------------------------
 
@@ -113,8 +110,10 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `cat_id`, `post_title`, `post_author`, `post_date`, `post_img`, `post_content`, `post_tag`, `post_status`, `views_count`) VALUES
-(6, 19, 'test', 'root', '2018-03-03', 'social.png', 'ja sd;aljdlajdl adlajdajdljalskdja dklj sldjsa kdjlakj d', 'test', 'published', 4),
-(7, 19, 'WHat is happening', 'root', '2018-03-03', 'Free-Portfolio-WordPress-Themes.gif', 'One day very soon wentÂ ', 'idk', 'published', 6);
+(7, 19, 'WHat is happening', 'root', '2018-05-04', 'Free-Portfolio-WordPress-Themes.gif', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pretium odio id lectus lacinia semper. Sed posuere varius sapien vitae bibendum. In bibendum ipsum ac nunc viverra, nec pharetra odio posuere. Etiam ullamcorper ullamcorper libero, in dictum dui laoreet vel. Donec ultrices o', 'idk, wtf', 'draft', 15),
+(9, 20, 'Learn PHP ', 'root', '2018-05-05', 'pgp.jpg', '<p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed neque neque. Fusce congue egestas molestie. Suspendisse quis condimentum sapien. Duis eget pellentesque elit. Morbi metus turpis, convallis varius nunc vel, consectetur sodales nisi. Donec gravida, dolor imperdiet tincidunt tincidunt, orci arcu accumsan est, sit amet euismod erat tellus ac metus. Nulla massa mauris, scelerisque eget ullamcorper vitae, tempus id quam. Mauris et dolor sit amet nisi varius pulvinar. Nam malesuada turpis vel ligula facilisis, sed suscipit felis rhoncus. Nulla accumsan sapien euismod fermentum iaculis. Nulla dignissim eros urna, eget efficitur sapien sagittis a. Mauris posuere facilisis quam, vitae venenatis augue facilisis vel.</p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\"><br></p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\"><span style=\\\"color: rgb(74, 123, 140);\\\">Curabitur pellentesque elit sed magna pharetra, eu vestibulum nisi aliquet. Fusce sit amet ex sed nibh sodales ultricies. Quisque id urna mauris. Sed id neque sed massa vehicula sagittis a ac nisi. Sed lobortis rutrum arcu, sed ullamcorper lectus dictum vitae. Pellentesque in cursus elit. Cras eleifend lectus vel laoreet tristique. Nunc felis sem, tempus vitae pharetra sit amet, convallis nec dolor. Nullam a blandit turpis, nec vehicula eros. Sed libero libero, posuere vel suscipit eu, porta vulputate purus. Duis eleifend eu lectus ac pellentesque.</span></p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\"><br></p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Sed fringilla hendrerit mauris, eu porta lectus rutrum eget. Vestibulum vitae auctor quam. Vivamus eget facilisis nulla. Nam maximus lectus id libero sodales, bibendum gravida libero vestibulum. Nulla eu convallis tortor. Donec eget luctus ligula, non scelerisque velit. Maecenas nec tincidunt dui. Proin bibendum sollicitudin nisl facilisis lacinia. Phasellus mattis facilisis ullamcorper.</p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Etiam id nunc mattis, aliquet diam eu, condimentum lorem. Cras et viverra justo. Phasellus molestie quam metus, sit amet aliquet massa aliquet non. Sed a fringilla sapien. Donec hendrerit, ligula id elementum auctor, leo felis sagittis enim, sed imperdiet odio quam in tellus. Duis a nunc metus. Donec placerat convallis eros, at pharetra eros vehicula nec. Mauris non justo laoreet, fermentum magna dictum, tempus lacus. In vitae feugiat quam, ut tincidunt elit. Aliquam ornare augue consectetur suscipit porta. Suspendisse ullamcorper erat mi, dapibus accumsan nulla rhoncus in.</p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Nulla convallis, mauris blandit iaculis molestie, tortor erat sollicitudin lorem, sit amet venenatis leo est id sapien. Donec eros mi, pellentesque a turpis eu, varius volutpat purus.&nbsp;</p>', 'PHP 7', 'draft', 2),
+(10, 22, 'Learn Java', 'root', '2018-05-05', 'java.png', '<p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed neque neque. Fusce congue egestas molestie. Suspendisse quis condimentum sapien. Duis eget pellentesque elit. Morbi metus turpis, convallis varius nunc vel, consectetur sodales nisi. Donec gravida, dolor imperdiet tincidunt tincidunt, orci arcu accumsan est, sit amet euismod erat tellus ac metus. Nulla massa mauris, scelerisque eget ullamcorper vitae, tempus id quam. Mauris et dolor sit amet nisi varius pulvinar. Nam malesuada turpis vel ligula facilisis, sed suscipit felis rhoncus. Nulla accumsan sapien euismod fermentum iaculis. Nulla dignissim eros urna, eget efficitur sapien sagittis a. Mauris posuere facilisis quam, vitae venenatis augue facilisis vel.</p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Curabitur pellentesque elit sed magna pharetra, eu vestibulum nisi aliquet. Fusce sit amet ex sed nibh sodales ultricies. Quisque id urna mauris. Sed id neque sed massa vehicula sagittis a <span style=\\\"color: rgb(107, 165, 74);\\\">ac nisi. Sed lobortis rutru</span>m arcu, sed ullamcorper lectus dictum vitae. Pellentesque in cursus elit. Cras eleifend lectus vel laoreet tristique. Nunc felis sem, tempus vitae pharetra sit amet, convallis nec dolor. Nullam a blandit turpis, nec vehicula eros. Sed libero libero, posuere vel suscipit eu, porta vulputate purus. Duis eleifend eu lectus ac pellentesque.</p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\"><span style=\\\"color: rgb(255, 0, 0);\\\">Sed fringilla hendrerit mauris, eu porta lectus rutrum eget. Vestibulum vitae auctor quam. Vivamus eget facilisis nulla. Nam maximus lectus id libero sodales, bibendum gravida libero vestibulum. Nulla eu convallis tortor. Donec eget luctus ligula, non scelerisque velit. Maecenas nec tincidunt dui. Proin bibendum sollicitudin nisl facilisis lacinia. Phasellus mattis facilisis ullamcorper.</span></p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Etiam id nunc mattis, aliquet di<span style=\\\"background-color: rgb(115, 24, 66);\\\">am eu, condimentum lorem. Cras et viverra justo. Phasellus molestie quam metus, sit amet aliquet massa aliquet non. Sed a fringilla sapien. Donec hendrerit, ligula id elementum auctor, leo felis sagittis enim, sed imperdiet odio quam in tellus. Duis a nunc metus. Donec placerat convallis eros, at pharetra eros vehicula nec. Mauris non justo laoreet, </span>fermentum magna dictum, tempus lacus. In vitae feugiat quam, ut tincidunt elit. Aliquam ornare augue consectetur suscipit porta. Suspendisse ullamcorper erat mi, dapibus accumsan nulla rhoncus in.</p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Nulla convallis, mauris blandit iaculis molestie, tortor erat sollicitudin lorem, sit amet venenatis leo est id sapien. Donec eros mi, pellentesque a turpis eu, varius volutpat purus.&nbsp;</p><p style=\\\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\"><br></p>', 'JAVA', 'published', 2),
+(11, 19, 'Test Post ', 'root', '2018-05-06', 'Free-Portfolio-WordPress-Themes.gif', '<h2>This is a test post with dummy data for the system testing</h2><p><br></p><h4>Some of lorem ipsum dummy data :&nbsp;</h4><p><span style=\"\\&quot;font-family:\" \"open=\"\" sans\",=\"\" arial,=\"\" sans-serif;=\"\" text-align:=\"\" justify;\\\"=\"\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim vitae metus eget facilisis. Pellentesque molestie volutpat velit, vel ornare magna placerat in. Duis at enim ornare, finibus orci ac, mollis mi. Donec quis molestie tortor,<span style=\"\\&quot;color:\" rgb(107,=\"\" 173,=\"\" 222);\\\"=\"\"> bibendum feugiat </span>dolor. Suspendisse lacinia mattis metus. Sed vel arcu urna. Integer in nibh pharetra, egestas quam non, placerat lacus.</span></p><pre>&nbsp; &nbsp; function escape($string){<br>&nbsp; &nbsp; &nbsp; &nbsp; global $connect;<br>&nbsp; &nbsp; &nbsp; &nbsp; return mysqli_real_escape_string($connect,trim($string));<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; function redirect($location){<br>&nbsp; &nbsp; &nbsp; &nbsp; header(\"Location:$location\");<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; function notAllowed($regex,$location){<br>&nbsp; &nbsp; &nbsp; &nbsp; $dir = __DIR__;<br>&nbsp; &nbsp; &nbsp; &nbsp; $pattern = $regex;<br>&nbsp; &nbsp; &nbsp; &nbsp; if(preg_match($pattern,$dir)){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; redirect($location);<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; }</pre><p><span \"open=\"\" sans\",=\"\" arial,=\"\" sans-serif;=\"\" text-align:=\"\" justify;\\\"=\"\"></span></p><pre><br></pre><p></p>', 'TEST TAGS, system testing, unit testing, white-box testing, test', 'published', 5);
 
 -- --------------------------------------------------------
 
@@ -132,11 +131,11 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`role_id`, `role_title`) VALUES
-(-1, 'Block'),
 (1, 'Admin'),
+(-1, 'Block'),
 (2, 'ContentWriter'),
-(3, 'Subscriber'),
-(4, 'Pending');
+(4, 'Pending'),
+(3, 'Subscriber');
 
 -- --------------------------------------------------------
 
@@ -182,9 +181,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `dateAdded`, `user_image`, `role`, `for_role`, `token`) VALUES
-(48, 'root', '$2y$12$.4xIyK8L9jB.Q/rFSC18R.jEAKEz7Avg2aVfvC5tj7TM.Ms8hdOrq', 'Default', 'User', 'someone@example.com', '2018-03-03', 'Web.gif', 1, NULL, NULL),
-(49, 'test', '$2y$12$P5jvadQ1E.fDNynEv.qK3eaiY5jTcrhDKzn6mZXqMGYrgNzwmWJky', 'test', 'username', 'test@name.com', '2018-02-22', 'girl.png', 2, NULL, NULL),
-(51, 'wew', '$2y$12$Xs09VUEfYhpxy9U8BRIwLOy6IgI8pCN9Kg529S/jHmS6zf6vhEOFO', 'Test', 'User', 'tesytesy@ts.com', '2018-02-22', 'testIamge.jpg', 2, NULL, NULL);
+(48, 'root', '$2y$12$PM7Agy5M/iN3mlGpU3rQ5uLVttGIIHpBbVTyUaigCziEN2dpgBhVK', 'Default', 'User', 'someone@example.com', '2018-05-07', 'our-services.png', 1, NULL, '1d4dbde5c6874682a5a55f3879a424fdf8e4945765a4a38eacf82ad738ac416795c7e4132e5a04e27810926a399f261c10eda6f304cc56abd3eb8458'),
+(53, 'SE123', '$2y$12$pJFzRFzw67eR5A1ZKrtDCeJv2O24uETKSJilbWbFyapvC76ty7Jgy', 'Someone', 'Example', 'someoneExample@cc.com', '2018-05-07', 'boy.png', 2, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -194,7 +192,8 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`cat_id`);
+  ADD PRIMARY KEY (`cat_id`),
+  ADD UNIQUE KEY `cat_title` (`cat_title`);
 
 --
 -- Indexes for table `comments`
@@ -218,7 +217,8 @@ ALTER TABLE `posts`
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`role_id`);
+  ADD PRIMARY KEY (`role_id`),
+  ADD UNIQUE KEY `role_title` (`role_title`);
 
 --
 -- Indexes for table `subscribers`
@@ -242,25 +242,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `cmt_id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `cmt_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `online`
 --
 ALTER TABLE `online`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -278,7 +278,7 @@ ALTER TABLE `subscribers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

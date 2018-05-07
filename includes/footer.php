@@ -1,8 +1,11 @@
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2017</p>
+                <div class="col-lg-8">
+                    
+                </div>
+                <div class="col-lg-4">
+                    <p>Copyright &copy; theFrustratedDeveloper 2018</p>
                 </div>
             </div>
         </footer>

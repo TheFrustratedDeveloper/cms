@@ -1,11 +1,11 @@
-<div class="col-md-4">
-<script>
-    window.setTimeout(function() {
-    $(".alert").fadeTo(300, 0).slideUp(300, function(){
-        $(this).remove();
-    });
-}, 4000);
-</script>
+                <div class="col-md-4">
+                <script>
+                    window.setTimeout(function() {
+                    $(".alert").fadeTo(300, 0).slideUp(300, function(){
+                        $(this).remove();
+                    });
+                }, 4000);
+                </script>
                 <!-- Blog Search Well -->
                 <div class="well">
                     <h4>Blog Search</h4>
@@ -76,8 +76,6 @@
                         if(empty($email)){
                             echo "<br><p class='alert alert-info'>Email cannot be empty</p>";
                         }else{
-                            
-                        
                         $subscribed = subscriber($email);
                         if($subscribed){
                             echo "<br><p class='alert alert-danger'>Thank-you but you are already registered as a subscriber</p>";
@@ -87,19 +85,8 @@
                     }
                     ?>
                 </div> 
-                    
-                
-                    
                     </form>
-                    
-
-                    
-                   
-                    
                     <!-- /.input-group -->
-                
-
-
                 <!-- Blog Categories Well -->
                 <div class="well">
                     <h4>Blog Categories</h4>
@@ -137,7 +124,6 @@
                     </div>
                     <!-- /.row -->
                 </div>
-
                 <!-- Side Widget Well -->
                 <?php include "widgets.php"; ?>
             </div>

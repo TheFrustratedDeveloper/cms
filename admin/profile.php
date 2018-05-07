@@ -13,7 +13,6 @@
         while($row = mysqli_fetch_assoc($selectUser)){
             $loginID = $_SESSION['user_id'];
             $fname = $row['first_name'];
-            echo $fname;
             $lname = $row['last_name'];
             $email = $row['email'];
             $userImg = $row['user_image'];
@@ -33,7 +32,7 @@
             if(password_verify("$password","$oldPswrd")){
                 
                 $dateAdded = date('d-m-y');            
-                move_uploaded_file($userImgTemp,"../images/users/$userImg");
+                move_uploaded_file($userImgTemp,"../images/users/{$userImg}");
                 if(empty($userImg)){
                 $imgQuery = "SELECT * FROM users WHERE user_id = $loginID";
                 $selectImg = mysqli_query($connect,$imgQuery);
@@ -68,7 +67,7 @@
             if(password_verify("$password","$oldPswrd")){
                 if($_POST['newPassword'] === $_POST['confirmPassword']){
                     $dateAdded = date('d-m-y');            
-                    move_uploaded_file($userImgTemp,"../images/users/$userImg");
+                    move_uploaded_file($userImgTemp,"../images/users/{$userImg}");
                     if(empty($userImg)){
                         $imgQuery = "SELECT * FROM users WHERE user_id = $loginID";
                         $selectImg = mysqli_query($connect,$imgQuery);
@@ -202,15 +201,14 @@
                                 <input type="submit" id="updateProfile" value="Update Profile" name="updateProfile" class="btn btn-success">
                                 &nbsp;&nbsp;<span style="cursor: pointer;" class="text-danger" id="updatePass">Update Password</span>
                             </div>
-                            <script>
+<script>
 document.getElementById("updatePass").addEventListener("click", function(){
     document.getElementById("oldPass").style.visibility = "hidden";
     document.getElementById("updateProfile").style.visibility = "hidden";
     document.getElementById("changePassword").style.display = "block";
     document.getElementById("updatePass").style.visibility = "hidden";
-    
 });
-                            </script>
+</script>
                     </form>
                     </div>
                 </div>        

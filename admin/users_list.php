@@ -48,6 +48,8 @@
                                     break ;
                                     case 'editUser';
                                         redirect('index.php');
+                                        //discarded as we don't want even the admin to edit any other users profile details.
+                                        
                                         // editUser();
                                         // include "includes/editUser.php";
                                     break ;

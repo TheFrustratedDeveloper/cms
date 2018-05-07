@@ -3,9 +3,11 @@
         global $connect;
         return mysqli_real_escape_string($connect,trim($string));
     }
+
     function redirect($location){
         header("Location:$location");
     }
+
     function notAllowed($regex,$location){
         $dir = __DIR__;
         $pattern = $regex;
@@ -13,6 +15,7 @@
             redirect($location);
         }
     }
+
     function imagePlaceHolder($image = ''){
         if(!$image){
             return '../images/cover/default.png';
@@ -20,6 +23,7 @@
             return $image;
         }
     }
+
     function create_category(){
         global $connect;
         if(isset($_POST['submit'])){
@@ -41,6 +45,7 @@
             }
         }
     }
+
     function update_category(){
         global $connect;
         if(isset($_GET['edit'])){ //to show update textfield with cat_title in it
@@ -71,6 +76,7 @@
             echo "</div>";
         }
     }
+
     function delete_category(){
         global $connect;
         if(isset($_POST['delete'])){
@@ -84,6 +90,7 @@
             }
         }
     }
+    
     function addNewPost(){
         global $connect;
         if(isset($_POST['publish'])){
@@ -99,7 +106,9 @@
                 $postTag = $_POST['tags'];
                 $postContent = escape($_POST['content']);
                 $postDate = date('d-m-y');
+
                 move_uploaded_file($postImgTemp,"../images/cover/{$postImg}");
+                
                 $stmt = mysqli_prepare($connect,"INSERT INTO posts(post_title,cat_id,post_author,post_img,post_content,post_tag,post_status,post_date) VALUES(?,?,?,?,?,?,?,now())");
                 mysqli_stmt_bind_param($stmt,"sisssss",$postTitle,$cat_id,$postAuthor,$postImg,$postContent,$postTag,$postStatus);
                 mysqli_execute($stmt);
@@ -191,7 +200,7 @@
                 <strong>Sucessfull!</strong><br>Post Edited.
                 </div>";
 
-                echo "<div class='alert alert-success'><strong><a href='post_list.php'>View All Posts</a></strong> or <strong><a href='post_list.php?source=edit_post&p_id=$p_id'>Edit This Post</a></strong></div>";
+                echo "<div class='alert alert-success'><strong><a href='post_list.php'>View All Posts</a></strong></div>";
         }
 }
 }
@@ -317,7 +326,7 @@
                           <strong>Registered Sucessfully!</strong>
                           </div>";
                     $newUser = mysqli_insert_id($connect);
-                    echo "<div class='alert alert-success'><strong><a href='users_list.php'>View All Users</a></strong> or <strong><a href='users_list.php?source=editUser&id=$newUser'>Edit This User</a></strong></div>";
+                    echo "<div class='alert alert-success'><strong><a href='users_list.php'>View All Users</a></strong> <!-- or <strong><a href='users_list.php?source=editUser&id=$newUser'>Edit This User</a></strong> --> </div>";
                 }
             }else {
             echo   "<div class='alert alert-warning'>

@@ -1,3 +1,10 @@
+<script>
+    window.setTimeout(function() {
+    $(".alert").fadeTo(300, 0).slideUp(300, function(){
+        $(this).remove();
+    });
+}, 4000);
+</script>
 <?php 
 if(isset($_GET['p_id'])){
     $p_id = $_GET['p_id'];

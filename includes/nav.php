@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/cms">Utopia</a>
+                <a class="navbar-brand" href="/cms">Post.it</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -33,8 +33,6 @@
                     ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    
-                    <!-- <li><a href="/cms/admin">Admin Panel</a></li> -->
                     <?php 
                         if(isset($_SESSION['role'])){
                             echo "<li><a href='/cms/admin'>Admin Panel</a></li>";

@@ -21,7 +21,7 @@
                                     echo "All Posts";
                                 }
                             ?>
-                            <small>Author_Name</small>
+                            <small><?php echo $_SESSION['username']?> </small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>

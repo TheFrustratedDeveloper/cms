@@ -1,6 +1,0 @@
-RewriteEngine on
-RewriteRule ^(index|contact|registration|login|forgot)$ $1.php [NC,L]
-RewriteRule ^post/(\d+)$ post.php?p_id=$1
-RewriteRule ^sidebarCategory/(\d+)$ sidebarCategory.php?s_id=$1
-
-Options -Indexes

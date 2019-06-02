@@ -1,6 +1,6 @@
 # UTOPIA - A Basic Simple Content Management System [FINAL YEAR PROJECT]
 
-Build Status : WIP 
+Build Status : #WIP 
 
 ## Features
 - Blog like feel, interface

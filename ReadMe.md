@@ -33,7 +33,15 @@ Utopia is avaliable here on github clone or download [zip](https://codeload.gith
 - [PUSHER Credentials](https://pusher.com/)
 - [Toastr.js](https://cdnjs.com/libraries/toastr.js/latest)
 
-### NOTE: Clean SQL file is attached with structure. Default Login is root as username and toor as password.
+### NOTE: Clean SQL file is attached with structure.
+#### How to run (Localhost)
+- Install and run xampp/mampp or any other apache and mysql server
+- Goto localhost/cms/
+- Click on Content-Writer (Join Here)
+- Fill the details
+- Goto phpmyadmin
+- Set user's role to 1
+- Now LOGIN with system.
 
 ## Security
 Please disclose any vulnerabilities found responsibly - report any security problems found to the maintainers privately.
